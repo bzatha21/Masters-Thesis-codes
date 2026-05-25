@@ -1,10 +1,8 @@
 #!/usr/bin/env Rscript
 
 # ============================================================
-# Empirical Phase M1: 2010 SPX market panel construction
+# Empirical: 2010 SPX market panel construction
 # ------------------------------------------------------------
-# File name:
-#   PhaseM_2010_market_panel.R
 #
 # Purpose:
 #   Build a strict one-date SPX empirical calibration panel for
@@ -13,20 +11,9 @@
 #
 # Inputs:
 #   spx_option_rawiv_full_2010_01_07.csv
-#   spx_full_option_prices_2010_01_07.csv        (optional cross-check)
+#   spx_full_option_prices_2010_01_07.csv       
 #   spx_stock_prices_2010_01_07.csv
 #   usd_interest_rates_2010_01_07.csv
-#
-# Outputs:
-#   data/EmpiricalStudy/phaseM_2010_market_panel_output/
-#
-# Strict convention:
-#   - This is an empirical market-panel construction script.
-#   - It does not calibrate any model.
-#   - It prepares clean OTM call-equivalent prices and Black--Scholes implied volatilities.
-#   - Forward and discount factors are recovered by put-call parity.
-#   - The same panel is used for rough Heston, classical Heston, and VG.
-# ============================================================
 
 suppressPackageStartupMessages({
   library(readr)
@@ -103,7 +90,7 @@ plot_save <- function(plot_obj, stem, width, height, dpi = 180) {
 }
 
 # ============================================================
-# 1. Black--Scholes functions on forwards
+# 1. Black-Scholes functions on forwards
 # ============================================================
 
 black_call_forward <- function(F, K, tau, sigma, D = 1) {
