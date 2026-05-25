@@ -1,29 +1,3 @@
-#!/usr/bin/env Rscript
-
-# ============================================================
-# Empirical Phase M2: 2010 SPX model comparison, lambda_skew = 2.0
-# ------------------------------------------------------------
-# File name:
-#   PhaseM_2010_rheston_calibration_lambda20.R
-#
-# Purpose:
-#   Calibrate the validated rough Heston CF/Lewis pricing engine
-#   to the cleaned 2010 SPX option panel from PhaseM_2010_market_panel.R,
-#   and compare it with two benchmark mechanisms for skew:
-#
-#     1. classical Heston: stochastic-volatility benchmark, alpha fixed at 1;
-#     2. Variance Gamma: pure-jump exponential Levy benchmark.
-#
-# Model hierarchy:
-#   - rough Heston is the main model;
-#   - classical Heston and VG are benchmark models.
-#
-# Interpretation:
-#   This is a one-date empirical calibration case study. It reports
-#   IV-surface fit, price errors, ATM-IV errors, ATM-skew errors,
-#   maturity-level diagnostics, and model limitations. The script does
-#   not force rough Heston to dominate every metric.
-# ============================================================
 
 suppressPackageStartupMessages({
   library(readr)
