@@ -3,8 +3,6 @@
 # ============================================================
 # Phase S: controlled simulation study
 # ------------------------------------------------------------
-# File:
-#   Phase_s_simulation_study.R
 #
 # Purpose:
 #   Construct two controlled validation layers before empirical
@@ -20,11 +18,6 @@
 #   - Experiment 2 generates an independent model-based reference surface.
 #   - Rough Heston CF/Lewis pricing is handled separately in
 #     Phase_s_rheston_cf_pricing.R.
-#
-# Reduced run mode:
-#   Set PHASES_FAST_TEST=1 to use smaller path counts and fewer grid
-#   points for implementation checks.
-# ============================================================
 
 suppressPackageStartupMessages({
   library(readr)
@@ -154,7 +147,7 @@ write_csv(parameter_scenarios, file.path(out_dir, "simulation_v2_parameter_scena
 print(parameter_scenarios)
 
 # ============================================================
-# 2. Black--Scholes functions in forward form
+# 2. Black-Scholes functions in forward form
 # ============================================================
 
 # Prices are expressed as D_tau times a forward-price expectation.
@@ -201,7 +194,7 @@ implied_vol_black_call <- function(price, F, K, tau, D = 1, tol = 1e-9) {
 }
 
 # ============================================================
-# 3. Black--Scholes/Lewis control check
+# 3. Black-Scholes/Lewis control check
 # ============================================================
 
 # Characteristic function of the log-forward return under Black--Scholes.
@@ -534,7 +527,7 @@ write_csv(atm_loglog_points, file.path(out_dir, "simulation_v2_atm_skew_loglog_p
 print(atm_summary)
 print(atm_skew_extraction_audit)
 
-# Reduced-form parameter recovery with a held-out split; this is not rough Heston calibration.
+# Reduced-form parameter recovery with a held-out split; 
 logit <- function(x, lo, hi) log((x - lo) / (hi - x))
 inv_logit <- function(y, lo, hi) lo + (hi - lo) / (1 + exp(-y))
 
@@ -913,7 +906,7 @@ if (RUN_IVI_MODEL_EXPERIMENT) {
 }
 
 # ============================================================
-# 8. Report-ready plots
+# 8. Plots
 # ============================================================
 
 plot_theme <- theme_minimal(base_size = 12) +
