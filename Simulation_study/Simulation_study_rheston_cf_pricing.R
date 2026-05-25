@@ -3,9 +3,6 @@
 # ============================================================
 # Phase S pricing: rough Heston characteristic-function validation
 # ------------------------------------------------------------
-# File:
-#   Phase_s_rheston_cf_pricing.R
-#
 # Purpose:
 #   Price the same Volterra Heston grid used in the iVi Monte Carlo
 #   reference and compare the Fourier/Lewis output against that
@@ -21,11 +18,6 @@
 #   7. Lewis/Fourier truncation convergence.
 #   8. H-sensitivity of the ATM-skew term structure.
 #
-# Reduced run mode:
-#   Set PHASES_FAST_TEST=1 after running the simulation script in
-#   the same mode.
-# ============================================================
-
 suppressPackageStartupMessages({
   library(readr)
   library(dplyr)
@@ -1092,7 +1084,7 @@ if (RUN_H_SENSITIVITY) {
 }
 
 # ============================================================
-# 14. Report-ready plots
+# 14. Plots
 # ============================================================
 
 maturity_palette <- c("7d"="#1B9E77","14d"="#D95F02","30d"="#7570B3","90d"="#E7298A","180d"="#1F78B4")
